@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  mongoDb:
+    image: mongo
+    restart: always
+    container_name: mongoDb
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - ./db_data/:/data/db/
+    networks:
+      - nestjs-rest-api-boilerplate
+networks:
+  nestjs-rest-api-boilerplate:
