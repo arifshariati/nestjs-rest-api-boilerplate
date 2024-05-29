@@ -18,15 +18,23 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "docker:dev:up": "docker-compose --env-file .env.development.local up -d",
-    "docker:dev:down": "docker-compose down --rmi all --remove-orphans -v"
+    "docker:dev:up": "docker-compose -f docker-compose.development.yml  --env-file .env.development.local up -d",
+    "docker:dev:down": "docker-compose -f docker-compose.development.yml --env-file .env.development.local  down --rmi all --remove-orphans -v"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
     "@nestjs/config": "^3.2.2",
     "@nestjs/core": "^10.0.0",
     "@nestjs/mapped-types": "*",
+    "@nestjs/mongoose": "^10.0.6",
     "@nestjs/platform-express": "^10.0.0",
+    "@nestjs/swagger": "^7.3.1",
+    "@nestjs/throttler": "^5.1.2",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "compression": "^1.7.4",
+    "helmet": "^7.1.0",
+    "mongoose": "^8.4.0",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1"
   },
