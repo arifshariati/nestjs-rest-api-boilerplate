@@ -18,8 +18,11 @@ export class UserService {
     return this.userModel.find({}).exec();
   }
 
-  async findOne(id: string): Promise<User> {
-    return this.userModel.findOne({ _id: id });
+  async findById(id: string): Promise<User> {
+    return this.userModel.findById(id);
+  }
+  async findOne(field: Record<string, any>): Promise<User> {
+    return this.userModel.findOne(field);
   }
 
   async update(id: string, updateUserDto: UpdateUserDto): Promise<User> {
