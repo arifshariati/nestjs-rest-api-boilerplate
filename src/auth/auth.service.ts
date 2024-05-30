@@ -12,7 +12,7 @@ export class AuthService {
     username: string,
     pass: string,
   ): Promise<{ access_token: string }> {
-    const user = await this.userService.findOne(username);
+    const user = await this.userService.findOne({ username });
     if (user?.password !== pass) {
       throw new UnauthorizedException();
     }
