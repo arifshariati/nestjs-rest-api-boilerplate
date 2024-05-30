@@ -28,13 +28,13 @@ export class UserController {
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string) {
-    return await this.userService.findOne(id);
+  async findById(@Param('id') id: string) {
+    return await this.userService.findById(id);
   }
 
   @Patch(':id')
   async update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    const userData = await this.findOne(id);
+    const userData = await this.findById(id);
     if (!userData)
       throw new HttpException('Requested data not found', HttpStatus.NOT_FOUND);
 
