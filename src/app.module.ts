@@ -5,6 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { AuthModule } from './auth/auth.module';
 import { validate } from './config/env.validation';
+import { AuthGuard } from './guards/auth.guard';
 
 const ENV = process.env.NODE_ENV;
 
@@ -24,6 +25,6 @@ const ENV = process.env.NODE_ENV;
     AuthModule,
   ],
   controllers: [],
-  providers: [],
+  providers: [{ provide: 'APP_GUARD', useClass: AuthGuard }], // APP_GUARD is applied globally
 })
 export class AppModule {}
