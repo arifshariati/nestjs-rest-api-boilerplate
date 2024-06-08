@@ -24,7 +24,7 @@ class EnvironmentVariables {
   MONGODB_PORT: number;
 }
 
-export function validate(config: Record<string, unknown>) {
+export const validateEnv = (config: Record<string, unknown>) => {
   const validatedConfig = plainToInstance(EnvironmentVariables, config, {
     enableImplicitConversion: true,
   });
@@ -36,4 +36,4 @@ export function validate(config: Record<string, unknown>) {
     throw new Error(errors.toString());
   }
   return validatedConfig;
-}
+};

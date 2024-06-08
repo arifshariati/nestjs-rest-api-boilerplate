@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
-import { UserModule } from './user/user.module';
+import { UserModule } from './modules/user/user.module';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ThrottlerModule } from '@nestjs/throttler';
-import { AuthModule } from './auth/auth.module';
-import { validate } from './config/env.validation';
-import { AuthGuard } from './guards/auth.guard';
+import { AuthModule } from './modules/auth/auth.module';
+import { validateEnv } from './config';
+import { AuthGuard } from './guards';
 
 const ENV = process.env.NODE_ENV;
 
@@ -13,7 +13,7 @@ const ENV = process.env.NODE_ENV;
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      validate,
+      validate: validateEnv,
       envFilePath: [`.env.${ENV}.local`],
     }),
     ThrottlerModule.forRoot([{ ttl: 60, limit: 10 }]),
