@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     container_name: ${MONGO_INITDB_DATABASE}
     ports:
-      - ${MONGO_DB_PORT}:${MONGO_DB_PORT}
+      - ${MONGODB_PORT}:${MONGODB_PORT}
     environment:
       - MONGODB_DATABASE="test"
     volumes:
