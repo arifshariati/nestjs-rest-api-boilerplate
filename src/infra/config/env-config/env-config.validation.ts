@@ -27,13 +27,13 @@ class EnvironmentVariables {
   @IsString()
   MONGODB_URL: string;
   @IsString()
-  DATABASE_NAME: string;
+  MONGODB_NAME: string;
 
   @IsString()
-  DATABASE_HOST_NAME: string;
+  MONGODB_HOST: string;
 
   @IsNumber()
-  DATABASE_PORT_NUMBER: number;
+  MONGODB_PORT: number;
 }
 
 export const validate = (config: Record<string, unknown>) => {
