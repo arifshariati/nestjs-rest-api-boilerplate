@@ -1,9 +1,10 @@
-import { plainToInstance } from 'class-transformer';
+import { plainToClass } from 'class-transformer';
 import { IsEnum, IsNumber, IsString, validateSync } from 'class-validator';
 
 enum Environment {
   Development = 'development',
   Production = 'production',
+  Local = 'local',
   Test = 'test',
 }
 
@@ -23,21 +24,18 @@ class EnvironmentVariables {
   @IsString()
   JWT_REFRESH_TOKEN_EXPIRATION_TIME: string;
 
-  @IsNumber()
-  PORT: number;
+  @IsString()
+  DATABASE_NAME: string;
 
   @IsString()
-  MONGODB_DATABASE: string;
-
-  @IsString()
-  MONGODB_HOSTNAME: string;
+  DATABASE_HOST_NAME: string;
 
   @IsNumber()
-  MONGODB_PORT: number;
+  DATABASE_PORT_NUMBER: number;
 }
 
-export const validateEnv = (config: Record<string, unknown>) => {
-  const validatedConfig = plainToInstance(EnvironmentVariables, config, {
+export const validate = (config: Record<string, unknown>) => {
+  const validatedConfig = plainToClass(EnvironmentVariables, config, {
     enableImplicitConversion: true,
   });
   const errors = validateSync(validatedConfig, {
