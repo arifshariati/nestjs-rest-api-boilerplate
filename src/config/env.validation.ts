@@ -11,6 +11,18 @@ class EnvironmentVariables {
   @IsEnum(Environment)
   NODE_ENV: Environment;
 
+  @IsString()
+  JWT_SECRET: string;
+
+  @IsString()
+  JWT_EXPIRATION_TIME: string;
+
+  @IsString()
+  JWT_REFRESH_TOKEN_SECRET: string;
+
+  @IsString()
+  JWT_REFRESH_TOKEN_EXPIRATION_TIME: string;
+
   @IsNumber()
   PORT: number;
 
