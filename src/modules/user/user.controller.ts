@@ -8,7 +8,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { UserService } from './user.service';
-import { UpdateUserDto } from 'src/types/dtos/user';
+import { UpdateUserDto } from './dtos';
 
 @Controller('user')
 export class UserController {
