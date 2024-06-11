@@ -19,6 +19,12 @@ export class User {
 
   @Prop()
   age: number;
+
+  @Prop({ required: false })
+  last_login: Date;
+
+  @Prop({ required: false })
+  hashed_refresh_token: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
