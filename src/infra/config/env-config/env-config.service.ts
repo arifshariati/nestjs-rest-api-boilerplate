@@ -22,15 +22,19 @@ export class EnvConfigService implements IDatabaseConfig, IJWTConfig {
     return this.configService.get<string>('JWT_REFRESH_TOKEN_EXPIRATION_TIME');
   }
 
-  getDatabaseName(): string {
-    return this.configService.get<string>('DATABASE_NAME');
+  getMongodbUrl(): string {
+    return this.configService.get<string>('MONGODB_URL');
   }
 
-  getDatabaseHostName(): string {
-    return this.configService.get<string>('DATABASE_HOST_NAME');
+  getMongodbName(): string {
+    return this.configService.get<string>('MONGODB_NAME');
   }
 
-  getDatabasePortNumber(): number {
-    return this.configService.get<number>('DATABASE_PORT_NUMBER');
+  getMongodbHost(): string {
+    return this.configService.get<string>('MONGODB_HOST');
+  }
+
+  getMongodbPort(): number {
+    return this.configService.get<number>('MONGODB_PORT');
   }
 }

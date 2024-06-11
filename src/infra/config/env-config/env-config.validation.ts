@@ -25,6 +25,8 @@ class EnvironmentVariables {
   JWT_REFRESH_TOKEN_EXPIRATION_TIME: string;
 
   @IsString()
+  MONGODB_URL: string;
+  @IsString()
   DATABASE_NAME: string;
 
   @IsString()
